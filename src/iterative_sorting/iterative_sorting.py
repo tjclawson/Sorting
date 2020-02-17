@@ -18,9 +18,6 @@ def selection_sort(arr):
     return arr
 
 
-# int_arr = [1, 5, 6, 2, 8, 7, 4, 9, 3]
-# print(selection_sort(int_arr))
-
 # TO-DO:  implement the Bubble Sort function below
 def bubble_sort(arr):
     did_swap = True
@@ -36,11 +33,21 @@ def bubble_sort(arr):
     return arr
 
 
-arr1 = [1, 5, 8, 4, 2, 9, 6, 0, 3, 7]
-print(bubble_sort(arr1))
-
-
 # STRETCH: implement the Count Sort function below
-def count_sort( arr, maximum=-1 ):
+def count_sort(arr, maximum=-1):
+    if len(arr) == 0:
+        return arr
+
+    maximum = max(arr)
+    count_arr = [0] * (maximum + 1)
+    for num in arr:
+        count_arr[num - 1] += 1
+        if num < 0:
+            return "Error, negative numbers not allowed in Count Sort"
+
+    original_length = len(arr)
+    arr.clear()
+    for i in range(0, original_length):
+        arr.extend([i] * count_arr[i])
 
     return arr
