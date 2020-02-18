@@ -11,9 +11,7 @@ def selection_sort(arr):
                 smallest_index = j
 
         # TO-DO: swap
-        temp = arr[cur_index]
-        arr[cur_index] = arr[smallest_index]
-        arr[smallest_index] = temp
+        arr[cur_index], arr[smallest_index] = arr[smallest_index], arr[cur_index]
 
     return arr
 
@@ -25,9 +23,7 @@ def bubble_sort(arr):
         did_swap = False
         for i in range(1, len(arr)):
             if arr[i] < arr[i - 1]:
-                temp = arr[i]
-                arr[i] = arr[i - 1]
-                arr[i - 1] = temp
+                arr[i], arr[i -1] = arr[i - 1], arr[i]
                 did_swap = True
 
     return arr
