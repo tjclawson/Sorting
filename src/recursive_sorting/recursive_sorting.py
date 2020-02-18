@@ -27,13 +27,12 @@ def merge(arrA, arrB):
 # TO-DO: implement the Merge Sort function below USING RECURSION
 def merge_sort(arr):
     # TO-DO
-    first_half = arr[0:(len(arr) // 2)]
-    second_half = arr[(len(arr) // 2): len(arr)]
-    if len(first_half) > 1:
-        first_half = merge_sort(first_half)
-    if len(second_half) > 1:
-        second_half = merge_sort(second_half)
-    return merge(first_half, second_half)
+    mid = len(arr) // 2
+    if len(arr[:mid]) > 1:
+        arr[:mid] = merge_sort(arr[:mid])
+    if len(arr[mid:]) > 1:
+        arr[mid:] = merge_sort(arr[mid:])
+    return merge(arr[:mid], arr[mid:])
 
 
 # STRETCH: implement an in-place merge sort algorithm
